@@ -1,15 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elderly Computer Skills Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/ui-lightness/jquery-ui.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Level Select Screen -->
+        <div id="level-select" class="screen active">
+            <div class="container">
+                <h1 class="main-title">Computer Skills Training</h1>
+                <p class="subtitle">Learn basic computer skills step by step</p>
+                
+                <div class="levels-grid">
+                    <div class="level-card" data-level="1">
+                        <div class="level-icon completed-icon" style="display: none;">✓</div>
+                        <div class="level-icon copy-icon">📋</div>
+                        <h2>Level 1: Copy & Paste Basics</h2>
+                        <p>Learn to copy and paste text</p>
+                        <div class="level-info">
+                            <span class="time-badge">Time: 60 seconds</span>
+                            <span class="completed-badge" style="display: none;">✓ Completed</span>
+                        </div>
+                        <button class="level-button">Start Level</button>
+                    </div>
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Elderly Computer Skills Game</title>
-    </head>
+                    <div class="level-card" data-level="2">
+                        <div class="level-icon completed-icon" style="display: none;">✓</div>
+                        <div class="level-icon copy-icon">📋</div>
+                        <h2>Level 2: Copy & Paste Practice</h2>
+                        <p>Get faster at copying</p>
+                        <div class="level-info">
+                            <span class="time-badge">Time: 30 seconds</span>
+                            <span class="completed-badge" style="display: none;">✓ Completed</span>
+                        </div>
+                        <button class="level-button">Start Level</button>
+                    </div>
 
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-    </body>
-  </html>
-  
+                    <div class="level-card" data-level="3">
+                        <div class="level-icon completed-icon" style="display: none;">✓</div>
+                        <div class="level-icon copy-icon">📋</div>
+                        <h2>Level 3: Copy & Paste Expert</h2>
+                        <p>Master copy and paste</p>
+                        <div class="level-info">
+                            <span class="time-badge">Time: 15 seconds</span>
+                            <span class="completed-badge" style="display: none;">✓ Completed</span>
+                        </div>
+                        <button class="level-button">Start Level</button>
+                    </div>
+
+                    <div class="level-card" data-level="4">
+                        <div class="level-icon completed-icon" style="display: none;">✓</div>
+                        <div class="level-icon mouse-icon">🖱️</div>
+                        <h2>Level 4: Drag & Drop Basics</h2>
+                        <p>Learn to drag and drop files</p>
+                        <div class="level-info">
+                            <span class="time-badge">Time: 30 seconds</span>
+                            <span class="completed-badge" style="display: none;">✓ Completed</span>
+                        </div>
+                        <button class="level-button">Start Level</button>
+                    </div>
+
+                    <div class="level-card" data-level="5">
+                        <div class="level-icon completed-icon" style="display: none;">✓</div>
+                        <div class="level-icon mouse-icon">🖱️</div>
+                        <h2>Level 5: Drag & Drop Practice</h2>
+                        <p>Get faster at dragging</p>
+                        <div class="level-info">
+                            <span class="time-badge">Time: 15 seconds</span>
+                            <span class="completed-badge" style="display: none;">✓ Completed</span>
+                        </div>
+                        <button class="level-button">Start Level</button>
+                    </div>
+
+                    <div class="level-card" data-level="6">
+                        <div class="level-icon completed-icon" style="display: none;">✓</div>
+                        <div class="level-icon copy-icon">📋</div>
+                        <h2>Level 6: Copy & Paste Files</h2>
+                        <p>Copy files like a pro</p>
+                        <div class="level-info">
+                            <span class="time-badge">Time: 30 seconds</span>
+                            <span class="completed-badge" style="display: none;">✓ Completed</span>
+                        </div>
+                        <button class="level-button">Start Level</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tutorial Screen -->
+        <div id="tutorial" class="screen">
+            <div class="tutorial-overlay">
+                <div class="tutorial-content">
+                    <h2>How to Play - Text Instructions</h2>
+                    
+                    <!-- Copy & Paste Tutorial -->
+                    <div id="copy-paste-tutorial" class="tutorial-section">
+                        <div class="tutorial-step">
+                            <div class="step-icon">🖱️</div>
+                            <h3>Step 1: Select the Text</h3>
+                            <p>Click and drag over the text to select it, or triple-click to select all</p>
+                        </div>
+                        <div class="tutorial-step">
+                            <div class="step-icon">📋</div>
+                            <h3>Step 2: Copy the Text</h3>
+                            <p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> or right-click and select "Copy"</p>
+                        </div>
+                        <div class="tutorial-step">
+                            <div class="step-icon">📄</div>
+                            <h3>Step 3: Paste the Text</h3>
+                            <p>Click in the empty box, then press <kbd>Ctrl</kbd> + <kbd>V</kbd> or right-click and select "Paste"</p>
+                        </div>
+                    </div>
+
+                    <!-- Drag & Drop Tutorial -->
+                    <div id="drag-drop-tutorial" class="tutorial-section" style="display: none;">
+                        <div class="tutorial-step">
+                            <div class="step-icon">🖱️</div>
+                            <h3>Step 1: Click and Hold</h3>
+                            <p>Click on a file and HOLD the mouse button down</p>
+                        </div>
+                        <div class="tutorial-step">
+                            <div class="step-icon">🖱️</div>
+                            <h3>Step 2: Drag the File</h3>
+                            <p>While holding the button, move the mouse to the folder</p>
+                        </div>
+                        <div class="tutorial-step">
+                            <div class="step-icon">📁</div>
+                            <h3>Step 3: Release to Drop</h3>
+                            <p>Release the mouse button when the file is over the folder</p>
+                        </div>
+                    </div>
+
+                    <!-- File Copy Tutorial -->
+                    <div id="file-copy-tutorial" class="tutorial-section" style="display: none;">
+                        <div class="tutorial-step">
+                            <div class="step-icon">🖱️</div>
+                            <h3>Step 1: Right-Click File</h3>
+                            <p>Right-click on a file to open the menu</p>
+                            <div class="tip-box">💡 Right-click = RIGHT mouse button</div>
+                        </div>
+                        <div class="tutorial-step">
+                            <div class="step-icon">📋</div>
+                            <h3>Step 2: Click "Copy"</h3>
+                            <p>Click on "📋 Copy" in the menu</p>
+                        </div>
+                        <div class="tutorial-step">
+                            <div class="step-icon">📁</div>
+                            <h3>Step 3: Right-Click Folder</h3>
+                            <p>Right-click on the "Backup Folder"</p>
+                        </div>
+                        <div class="tutorial-step">
+                            <div class="step-icon">📄</div>
+                            <h3>Step 4: Click "Paste"</h3>
+                            <p>Click "📄 Paste" to copy the file</p>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-buttons">
+                        <button id="next-to-video" class="btn-primary">Next: Watch Video Tutorial</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Tutorial Screen -->
+        <div id="video-tutorial" class="screen">
+            <div class="tutorial-overlay">
+                <div class="tutorial-content">
+                    <h2 id="video-title">Video Tutorial - Level 1</h2>
+                    
+                    <div class="video-container">
+                        <div id="video-placeholder" class="video-placeholder">
+                            <div class="play-icon">▶️</div>
+                            <p class="video-text">Video Tutorial Placeholder</p>
+                            <p class="video-subtitle">Replace VIDEO_URLS[1] in Tutorial.tsx with your YouTube URL</p>
+                            <div class="url-display">
+                                <p class="url-text">Current: YOUR_YOUTUBE_URL_FOR_LEVEL_1</p>
+                            </div>
+                        </div>
+                        <div id="video-iframe" class="video-iframe" style="display: none;">
+                            <iframe width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips">
+                        <h3>Quick Tips:</h3>
+                        <ul id="tips-list">
+                            <!-- Tips will be populated by JavaScript -->
+                        </ul>
+                    </div>
+
+                    <div class="tutorial-buttons">
+                        <button id="back-to-text" class="btn-outline">Back to Text</button>
+                        <button id="start-game" class="btn-primary">Start Game!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <button id="back-to-menu" class="btn-outline">← Back to Menu</button>
+                <h1 id="game-title">Level 1: Copy & Paste</h1>
+                <div class="spacer"></div>
+            </div>
+
+            <!-- Timer -->
+            <div id="timer-container" class="timer-container">
+                <div class="timer-info">
+                    <span>Time Remaining:</span>
+                    <span id="time-left" class="time-display">60s</span>
+                </div>
+                <div class="timer-bar">
+                    <div id="timer-progress" class="timer-fill"></div>
+                </div>
+            </div>
+
+            <!-- Level 1-3: Copy & Paste Game -->
+            <div id="copy-paste-game" class="game-content">
+                <div class="game-instructions">
+                    <p>Copy the text below and paste it into all 5 boxes</p>
+                </div>
+
+                <div class="text-to-copy">
+                    <label>Text to Copy:</label>
+                    <div id="source-text" class="source-text">Hello World</div>
+                </div>
+
+                <div class="input-boxes">
+                    <div class="input-group">
+                        <label>Box 1:</label>
+                        <input type="text" class="paste-input" data-index="0" placeholder="Paste here...">
+                    </div>
+                    <div class="input-group">
+                        <label>Box 2:</label>
+                        <input type="text" class="paste-input" data-index="1" placeholder="Paste here...">
+                    </div>
+                    <div class="input-group">
+                        <label>Box 3:</label>
+                        <input type="text" class="paste-input" data-index="2" placeholder="Paste here...">
+                    </div>
+                    <div class="input-group">
+                        <label>Box 4:</label>
+                        <input type="text" class="paste-input" data-index="3" placeholder="Paste here...">
+                    </div>
+                    <div class="input-group">
+                        <label>Box 5:</label>
+                        <input type="text" class="paste-input" data-index="4" placeholder="Paste here...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level 4-5: Drag & Drop Game -->
+            <div id="drag-drop-game" class="game-content" style="display: none;">
+                <div class="drag-drop-container">
+                    <div class="files-section">
+                        <h3>Files to Move:</h3>
+                        <div id="files-grid" class="files-grid">
+                            <!-- Files will be generated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="drop-section">
+                        <h3>Drop Zone:</h3>
+                        <div id="drop-zone" class="drop-zone">
+                            <div class="folder-icon">📁</div>
+                            <h3>My Documents Folder</h3>
+                            <p>Drag files here (<span id="file-count">0</span>/10)</p>
+                            <div id="success-message" class="success-message" style="display: none;">
+                                <span id="dropped-count">0</span> files added ✓
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level 6: File Copy Game -->
+            <div id="file-copy-game" class="game-content" style="display: none;">
+                <div class="file-copy-container">
+                    <div class="files-section">
+                        <h3>Files to Copy:</h3>
+                        <div id="file-copy-grid" class="files-grid">
+                            <!-- Files will be generated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="backup-section">
+                        <h3>Backup Folder:</h3>
+                        <div id="backup-folder" class="backup-folder">
+                            <div class="folder-icon">📁</div>
+                            <h3>Backup Folder</h3>
+                            <p>Right-click here to paste files</p>
+                            <div id="backup-success" class="success-message" style="display: none;">
+                                <span id="backup-count">0</span> files copied ✓
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over" class="screen">
+            <div class="game-over-content">
+                <!-- Success Screen -->
+                <div id="success-screen" class="result-screen success">
+                    <div class="result-icon">🏆</div>
+                    <h2>Excellent Work!</h2>
+                    <p id="success-message-text">You've mastered this level!</p>
+                    <div class="result-buttons">
+                        <button id="continue-button" class="btn-primary">Continue to Next Level</button>
+                        <button id="play-again-button" class="btn-outline">Play Again</button>
+                    </div>
+                </div>
+
+                <!-- Failure Screen -->
+                <div id="failure-screen" class="result-screen failure" style="display: none;">
+                    <div class="result-icon">❌</div>
+                    <h2>Time's Up!</h2>
+                    <p id="failure-message-text">Don't worry, practice makes perfect!</p>
+                    <div class="result-buttons">
+                        <button id="try-again-button" class="btn-primary">Try Again</button>
+                        <button id="back-to-menu-fail" class="btn-outline">Back to Menu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,835 @@
+/* Elderly Computer Skills Game - CSS */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    min-height: 100vh;
+    color: #1e3a8a;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.screen.active {
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Typography */
+.main-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #1d4ed8;
+    margin-bottom: 3rem;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    color: #1e3a8a;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Level Select Screen */
+.levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.level-card {
+    background: white;
+    border: 4px solid #93c5fd;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.level-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.level-card.completed {
+    border-color: #10b981;
+}
+
+.level-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.copy-icon, .mouse-icon {
+    background: #3b82f6;
+    color: white;
+}
+
+.completed-icon {
+    background: #10b981;
+    color: white;
+}
+
+.level-info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.time-badge {
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+.completed-badge {
+    background: #dcfce7;
+    color: #166534;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+.level-button {
+    width: 100%;
+    height: 3.5rem;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.level-button:hover {
+    background: #2563eb;
+}
+
+/* Tutorial Screen */
+.tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.tutorial-content {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.tutorial-content h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1e3a8a;
+}
+
+.tutorial-section {
+    margin-bottom: 2rem;
+}
+
+.tutorial-step {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.tutorial-step:nth-child(1) {
+    background: #dbeafe;
+}
+
+.tutorial-step:nth-child(2) {
+    background: #dcfce7;
+}
+
+.tutorial-step:nth-child(3) {
+    background: #f3e8ff;
+}
+
+.tutorial-step:nth-child(4) {
+    background: #fef3c7;
+}
+
+.step-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.tutorial-step h3 {
+    color: #1e3a8a;
+    margin-bottom: 0.5rem;
+}
+
+.tutorial-step p {
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.tip-box {
+    background: white;
+    border: 2px solid #3b82f6;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #1d4ed8;
+}
+
+kbd {
+    background: white;
+    border: 2px solid #d1d5db;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    font-family: monospace;
+    font-size: 0.875rem;
+}
+
+.tutorial-buttons {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Video Tutorial */
+.video-container {
+    margin-bottom: 2rem;
+}
+
+.video-placeholder {
+    background: #f3f4f6;
+    border: 4px dashed #9ca3af;
+    border-radius: 1rem;
+    padding: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.play-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #9ca3af;
+}
+
+.video-text {
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+}
+
+.video-subtitle {
+    color: #9ca3af;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.url-display {
+    background: white;
+    border: 2px solid #d1d5db;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.url-text {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #6b7280;
+    word-break: break-all;
+}
+
+.video-iframe {
+    aspect-ratio: 16/9;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.quick-tips {
+    background: #dbeafe;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.quick-tips h3 {
+    color: #1d4ed8;
+    margin-bottom: 1rem;
+}
+
+.quick-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-tips li {
+    color: #374151;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.quick-tips li::before {
+    content: "•";
+    color: #1d4ed8;
+    position: absolute;
+    left: 0;
+}
+
+/* Game Screen */
+.game-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.spacer {
+    width: 8rem;
+}
+
+#game-title {
+    color: #1e3a8a;
+    font-size: 1.5rem;
+}
+
+/* Timer */
+.timer-container {
+    max-width: 400px;
+    margin: 0 auto 2rem;
+}
+
+.timer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    color: #374151;
+}
+
+.time-display {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.time-display.warning {
+    color: #f59e0b;
+}
+
+.time-display.danger {
+    color: #dc2626;
+    animation: pulse 0.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.timer-bar {
+    height: 2rem;
+    background: #e5e7eb;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 2px solid #d1d5db;
+}
+
+.timer-fill {
+    height: 100%;
+    background: #10b981;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    border-radius: 0.75rem;
+}
+
+.timer-fill.warning {
+    background: #f59e0b;
+}
+
+.timer-fill.danger {
+    background: #dc2626;
+}
+
+/* Game Content */
+.game-content {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+    border: 4px solid #93c5fd;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.game-instructions {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #374151;
+    font-size: 1.125rem;
+}
+
+/* Copy & Paste Game */
+.text-to-copy {
+    margin-bottom: 3rem;
+}
+
+.text-to-copy label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: #374151;
+    font-weight: 500;
+}
+
+.source-text {
+    background: #dbeafe;
+    border: 4px solid #3b82f6;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    color: #1e3a8a;
+    font-size: 1.25rem;
+    font-weight: 600;
+    user-select: all;
+    cursor: text;
+}
+
+.input-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    color: #374151;
+    font-weight: 500;
+}
+
+.paste-input {
+    width: 100%;
+    padding: 1.5rem;
+    border: 4px solid #d1d5db;
+    border-radius: 0.75rem;
+    font-size: 1.125rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.paste-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.paste-input.correct {
+    border-color: #10b981;
+    background: #dcfce7;
+}
+
+.paste-input.incorrect {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+
+/* Drag & Drop Game */
+.drag-drop-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.files-section h3,
+.drop-section h3 {
+    margin-bottom: 1rem;
+    color: #374151;
+}
+
+.files-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.file-item {
+    background: white;
+    border: 4px solid #3b82f6;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    cursor: move;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.file-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.file-item.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+}
+
+.file-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.file-name {
+    color: #374151;
+    font-size: 0.875rem;
+    word-break: break-word;
+}
+
+.drop-zone {
+    border: 8px dashed #3b82f6;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    min-height: 400px;
+    background: #dbeafe;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.drop-zone.drag-over {
+    border-color: #10b981;
+    background: #dcfce7;
+}
+
+.folder-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.drop-zone h3 {
+    color: #1e3a8a;
+    margin-bottom: 0.5rem;
+}
+
+.drop-zone p {
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.success-message {
+    background: #dcfce7;
+    border: 2px solid #10b981;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    color: #166534;
+    font-weight: 500;
+}
+
+/* File Copy Game */
+.file-copy-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.backup-folder {
+    border: 4px solid #3b82f6;
+    border-radius: 1rem;
+    padding: 2rem;
+    background: #dbeafe;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.backup-folder:hover {
+    background: #bfdbfe;
+}
+
+.backup-folder h3 {
+    color: #1e3a8a;
+    margin-bottom: 0.5rem;
+}
+
+.backup-folder p {
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+/* Game Over Screen */
+.game-over-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem;
+}
+
+.result-screen {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+    border: 4px solid;
+}
+
+.result-screen.success {
+    border-color: #10b981;
+    background: #f0fdf4;
+}
+
+.result-screen.failure {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+
+.result-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.result-screen h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.result-screen.success h2 {
+    color: #166534;
+}
+
+.result-screen.failure h2 {
+    color: #dc2626;
+}
+
+.result-screen p {
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+}
+
+.result-screen.success p {
+    color: #166534;
+}
+
+.result-screen.failure p {
+    color: #dc2626;
+}
+
+.result-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-height: 4rem;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #374151;
+    border: 2px solid #d1d5db;
+    border-radius: 0.75rem;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 4rem;
+}
+
+.btn-outline:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+/* Context Menu */
+.context-menu {
+    background: white;
+    border: 2px solid #d1d5db;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 0;
+    min-width: 120px;
+    max-width: 200px;
+    position: fixed;
+    z-index: 1000;
+}
+
+.menu-item {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    color: #374151;
+    font-size: 0.875rem;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.menu-item:hover:not(.disabled) {
+    background: #f3f4f6;
+}
+
+.menu-item.disabled {
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Ensure context menu is always visible */
+.context-menu {
+    pointer-events: auto;
+}
+
+/* Add subtle animation */
+.context-menu {
+    animation: contextMenuAppear 0.15s ease-out;
+}
+
+@keyframes contextMenuAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .levels-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .drag-drop-container,
+    .file-copy-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .files-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .spacer {
+        display: none;
+    }
+    
+    .result-buttons {
+        flex-direction: column;
+    }
+    
+    .tutorial-content {
+        padding: 2rem;
+    }
+    
+    .game-content {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .screen {
+        padding: 1rem;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .level-card {
+        padding: 1.5rem;
+    }
+    
+    .tutorial-content {
+        padding: 1.5rem;
+    }
+    
+    .game-content {
+        padding: 1.5rem;
+    }
+}
