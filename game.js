@@ -24,12 +24,12 @@ $(document).ready(function() {
 
     // Video URLs (placeholders)
     const videoUrls = {
-        1: 'YOUR_YOUTUBE_URL_FOR_LEVEL_1',
-        2: 'YOUR_YOUTUBE_URL_FOR_LEVEL_2', 
-        3: 'YOUR_YOUTUBE_URL_FOR_LEVEL_3',
-        4: 'YOUR_YOUTUBE_URL_FOR_LEVEL_4',
-        5: 'YOUR_YOUTUBE_URL_FOR_LEVEL_5',
-        6: 'YOUR_YOUTUBE_URL_FOR_LEVEL_6'
+        1: 'https://youtu.be/QW8wNjq0B0I',
+        2: 'https://youtu.be/_kxR4tb4LUg', 
+        3: 'https://youtu.be/nVGl5qBsaGc',
+        4: 'https://youtu.be/EdzL9dgzWEg',
+        5: 'https://youtu.be/zFfg7iYb1BA',
+        6: 'https://youtu.be/DfGgL3VocCY'
     };
 
     // Tips for each level type
