@@ -19,7 +19,7 @@ $(document).ready(function() {
         3: { type: 'copy-paste', duration: 17, phrase: 'Thank You' },
         4: { type: 'drag-drop', duration: 30, files: 10 },
         5: { type: 'drag-drop', duration: 15, files: 10 },
-        6: { type: 'file-copy', duration: 30, files: 8 }
+        6: { type: 'file-copy', duration: 40, files: 8 }
     };
 
     // Video URLs (placeholders)
