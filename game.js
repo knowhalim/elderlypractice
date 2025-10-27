@@ -1,5 +1,5 @@
 // Elderly Computer Skills Game - JavaScript with jQuery
-
+// The timing challenge is indirectly making player feels like they are losing but actually winning in terms of retention. The goal is to make them keep trying such that they get the gist of the copy and pasting.
 $(document).ready(function() {
     console.log('jQuery loaded, game initializing...');
     
