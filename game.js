@@ -14,7 +14,7 @@ $(document).ready(function() {
 
     // Level configurations
     const levelConfigs = {
-        1: { type: 'copy-paste', duration: 60, phrase: 'Hello World' },
+        1: { type: 'copy-paste', duration: 660, phrase: 'Hello World' },
         2: { type: 'copy-paste', duration: 30, phrase: 'Good Morning' },
         3: { type: 'copy-paste', duration: 20, phrase: 'Thank You' },
         4: { type: 'drag-drop', duration: 30, files: 10 },
