@@ -18,7 +18,7 @@ $(document).ready(function() {
         2: { type: 'copy-paste', duration: 30, phrase: 'Good Morning' },
         3: { type: 'copy-paste', duration: 20, phrase: 'Thank You' },
         4: { type: 'drag-drop', duration: 30, files: 10 },
-        5: { type: 'drag-drop', duration: 15, files: 10 },
+        5: { type: 'drag-drop', duration: 20, files: 10 },
         6: { type: 'file-copy', duration: 40, files: 8 }
     };
 
